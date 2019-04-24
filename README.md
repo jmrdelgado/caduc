@@ -1,0 +1,2 @@
+# caduc
+Gestión de Perecederos
