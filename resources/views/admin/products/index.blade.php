@@ -113,7 +113,7 @@
     			</div>
     		</div>
     		<div style="padding-top: 15px";>
-            	<a href="{{ route('productos.create') }}" class="btn btn-success btn-block" >{{__ ('Alta de Nueva Subcategoría')}}</a>
+            	<a href="{{ route('productos.create') }}" class="btn btn-success btn-block" >{{__ ('Alta de Nuevo Producto')}}</a>
             </div>
 		</div>
     </div>
