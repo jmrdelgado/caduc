@@ -1,5 +1,11 @@
 <?php
 
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+>>>>>>> development
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +17,32 @@
 |
 */
 
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+=======
+Route::get('/', function () {
+    return view('home');
+});
+
+Auth::routes();
+
+Route::get('/adm', 'HomeController@index')->name('adm');
+
+Route::resource('usuarios', 'UserController');
+
+Route::resource('roles', 'RolController');
+
+Route::resource('categorias', 'CategoriaController');
+
+Route::resource('subcategorias', 'SubcategoriaController');
+
+Route::resource('almacenes', 'AlmacenController');
+
+Route::resource('proveedores', 'ProveedorController');
+
+Route::resource('productos', 'ProductoController');
+>>>>>>> development

@@ -13,7 +13,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'name' => env('APP_NAME', 'CADUC - Gestión de perecederos'),
+=======
+    'name' => env('APP_NAME', 'CADUC'),
+>>>>>>> development
 
     /*
     |--------------------------------------------------------------------------

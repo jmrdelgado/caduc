@@ -4,9 +4,15 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+=======
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+>>>>>>> development
 
 class RegisterController extends Controller
 {
@@ -28,7 +34,11 @@ class RegisterController extends Controller
      *
      * @var string
      */
+<<<<<<< HEAD
     protected $redirectTo = '/home';
+=======
+    protected $redirectTo = '/usuarios';
+>>>>>>> development
 
     /**
      * Create a new controller instance.
@@ -37,7 +47,11 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+<<<<<<< HEAD
         $this->middleware('guest');
+=======
+        $this->middleware('auth');
+>>>>>>> development
     }
 
     /**
@@ -52,6 +66,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+<<<<<<< HEAD
+=======
+            'idRolFK' => ['required', 'int'],
+>>>>>>> development
         ]);
     }
 
@@ -63,10 +81,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+<<<<<<< HEAD
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+=======
+        //Comprobamos datos del ckeckbox y actualizamos valores
+        $newuser = $data;
+        if(!isset($newuser['estado'])){
+            $newuser['estado'] = 0;
+        }
+        return User::create([
+            'name' => $newuser['name'],
+            'apellidos' => $newuser['apellidos'],
+            'email' => $newuser['email'],
+            'password' => Hash::make($newuser['password']),
+            'estado' => $newuser['estado'],
+            'idRolFK' => $newuser['idRolFK'],
+>>>>>>> development
         ]);
     }
 }

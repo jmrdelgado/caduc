@@ -2,9 +2,14 @@
 
 namespace App;
 
+<<<<<<< HEAD
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+=======
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+>>>>>>> development
 
 class User extends Authenticatable
 {
@@ -16,7 +21,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+<<<<<<< HEAD
         'name', 'email', 'password',
+=======
+        'name', 'apellidos', 'email', 'password', 'estado', 'idRolFK',
+>>>>>>> development
     ];
 
     /**
@@ -36,4 +45,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+<<<<<<< HEAD
+=======
+    
+    /**
+     * Consultas de búsqueda
+     */
+    public function scopeSearchName($query, $param) {
+        if ($param) {
+            return $query->where('name', 'LIKE', "%$param%");
+        }
+    }
+    
+    public function scopeSearchEmail($query, $param) {
+        if ($param) {
+            return $query->where('email', 'LIKE', "%$param%");
+        }
+    }
+>>>>>>> development
 }
