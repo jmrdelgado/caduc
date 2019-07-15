@@ -1,11 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
->>>>>>> development
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,13 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<<<<<<< HEAD
-use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
-});
-=======
 Route::get('/', function () {
     return view('home');
 });
@@ -45,4 +35,3 @@ Route::resource('almacenes', 'AlmacenController');
 Route::resource('proveedores', 'ProveedorController');
 
 Route::resource('productos', 'ProductoController');
->>>>>>> development
