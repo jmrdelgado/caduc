@@ -36,7 +36,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        //Muestra la vista para llevar a cabo el alta de nuevos Productos
+        return view('admin.products.create');
     }
 
     /**
@@ -69,7 +70,9 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        //
+        //Obtenemos datos del registro indicado y Mostramos vista para edición
+        $productos = Producto::find($id);
+        return view('admin.products.edit', compact('productos'));
     }
 
     /**

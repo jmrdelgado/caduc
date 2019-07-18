@@ -4,7 +4,7 @@
 <section class="content-header">
     <h1>
         {{__ ('Productos')}}
-        <small>Gestión interna</small>
+        <small>{{__ ('Gestión interna')}}</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="/adm"><i class="fa fa-dashboard"></i> Admin</a></li>
