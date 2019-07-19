@@ -10,7 +10,7 @@ class Producto extends Model
     
     //Indicamos tabla y campos
     protected $table = "productos";
-    protected $fillable = ["nomProducto","descripcion","precioCosto","fechaCaducidad","existencias"];
+    protected $fillable = ["nomProducto","descripcion","precioCosto","fechaCaducidad","existencias","idSubcategoriaFK"];
     
     //Establecemos relación mucho a uno con tabla subcategorías
     public function subcategorias() {

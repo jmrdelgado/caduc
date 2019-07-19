@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Producto;
+use App\Subcategoria;
 
 class ProductoController extends Controller
 {
@@ -25,7 +26,7 @@ class ProductoController extends Controller
     {
         $productos = Producto::orderBy('nomProducto','ASC')
         ->paginate(3);
-        
+
         return view('admin.products.index', compact('productos'));
     }
 
@@ -70,9 +71,11 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
+        //Obtenemos todas las subcategorías existentes
+        $subcategorias = Subcategoria::all();
         //Obtenemos datos del registro indicado y Mostramos vista para edición
         $productos = Producto::find($id);
-        return view('admin.products.edit', compact('productos'));
+        return view('admin.products.edit', compact('subcategorias','productos'));
     }
 
     /**
@@ -84,7 +87,17 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Realizamos validación de datos requeridos
+        $this->validate($request, ["nomProducto" => "required"]);
+        $this->validate($request, ["fechaCaducidad" => "required"]);
+        $this->validate($request, ["existencias" => "required"]);
+        $this->validate($request, ["idSubcategoriaFK" => "required"]);
+
+        //Actualizamos datos del producto solicitado
+        Producto::find($id)->update($request->all());
+        
+        //Retornamos a la vista principal de productos
+        return redirect()->route('productos.index')->with('success','Registro actualizado satisfactoriamente');
     }
 
     /**

@@ -50,29 +50,44 @@
         	<input name="_method" type="hidden" value="PATCH">
         	<div class="form-horizontal">
             	<div class="box-body">
+            		<div class="form-group">
+            			<label class="col-sm-3 control-label" for="idSubcategoriaFK">{{__ ('Subcategoría*') }}</label>
+            			<div class="col-sm-8">
+                			<select class="form-control" style="width: 50%;" id="idSubcategoriaFK" name="idSubcategoriaFK">
+                				@if ($subcategorias->count())
+                						<option value="">{{__ ('Seleccione Subcategoría') }}</option>
+                					@foreach($subcategorias as $subcategoria)
+                						<option value="{{ $subcategoria->id }}" {{($subcategoria->id == $productos->idSubcategoriaFK)?'selected':""}}>{{ $subcategoria->nomSubcategoria }}</option>
+                					@endforeach
+                				@else
+                					<option>{{__ ('Seleccione Subcategoría') }}</option>
+                				@endif
+                			</select>
+                		</div>
+        			</div>
                 	<div class="form-group">
-          				<label class="col-sm-3 control-label" for="nameproducto">{{__ ('Denominación')}}</label>
+          				<label class="col-sm-3 control-label" for="nomProducto">{{__ ('Denominación')}}</label>
           				<div class="col-sm-8">
-          					<input type="text" class="form-control" id="nameproducto" name="nameproducto" placeholder="Denominación Producto" value="{{$productos->nomProducto}}">
+          					<input type="text" class="form-control" id="nomProducto" name="nomProducto" placeholder="Denominación Producto" value="{{$productos->nomProducto}}">
               			</div>
               		</div>
               		<div class="form-group">
-              			<label class="col-sm-3 control-label" for="descproducto">{{__ ('Descripción')}}</label>
+              			<label class="col-sm-3 control-label" for="descripcion">{{__ ('Descripción')}}</label>
               			<div class="col-sm-8">
-              				<textarea class="form-control" id="descproducto" name="descproducto" placeholder="Descripción">{{$productos->descripcion}}</textarea>
+              				<textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" style="resize:none;">{{$productos->descripcion}}</textarea>
               			</div>
                 	</div>
                 	<div class="form-group">
-              			<label class="col-sm-3 control-label" for="costecompra">{{__ ('Precio de Compra')}}</label>
+              			<label class="col-sm-3 control-label" for="precioCosto">{{__ ('Precio de Compra')}}</label>
               			<div class="col-sm-2">
-              				<input type="text" class="form-control" id="costecompra" name="costecompra" placeholder="Precio de compra" value="{{$productos->precioCosto}}">
+              				<input type="text" class="form-control" id="precioCosto" name="precioCosto" placeholder="Precio de compra" value="{{$productos->precioCosto}}">
               			</div>
               			<label class="control-label">{{__ ('€')}}</label>
                 	</div>
                 	<div class="form-group">
-              			<label class="col-sm-3 control-label" for="caducidad">{{__ ('Fecha Caducidad')}}</label>
+              			<label class="col-sm-3 control-label" for="fechaCaducidad">{{__ ('Fecha Caducidad')}}</label>
               			<div class="col-sm-3">
-              				<input type="text" class="form-control" id="caducidad" name="caducidad" placeholder="Fecha de Caducidad" value="{{$productos->fechaCaducidad}}">
+              				<input type="text" class="form-control" id="fechaCaducidad" name="fechaCaducidad" placeholder="Fecha de Caducidad" value="{{$productos->fechaCaducidad}}">
               			</div>
                 	</div>
                 	<div class="form-group">
