@@ -87,7 +87,7 @@
                 	<div class="form-group">
               			<label class="col-sm-3 control-label" for="fechaCaducidad">{{__ ('Fecha Caducidad')}}</label>
               			<div class="col-sm-3">
-              				<input type="text" class="form-control" id="fechaCaducidad" name="fechaCaducidad" placeholder="Fecha de Caducidad" value="{{$productos->fechaCaducidad}}">
+              				<input type="text" class="form-control" id="fechaCaducidad" name="fechaCaducidad" placeholder="Fecha de Caducidad" value="{{$productos->fechaCaducidad->format('d/m/Y')}}">
               			</div>
                 	</div>
                 	<div class="form-group">

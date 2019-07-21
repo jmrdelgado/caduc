@@ -12,6 +12,9 @@ class Producto extends Model
     protected $table = "productos";
     protected $fillable = ["nomProducto","descripcion","precioCosto","fechaCaducidad","existencias","idSubcategoriaFK"];
     
+    //Realizamos conversión de fechas
+    protected $dates = ['fechaCaducidad'];
+    
     //Establecemos relación mucho a uno con tabla subcategorías
     public function subcategorias() {
         return $this->belongsTo("App/Subcategoria");

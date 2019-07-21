@@ -72,9 +72,9 @@
                             	@foreach($productos as $producto)
                                     <tr role="row" class="odd">
                                     	<td style="width: 30%;">{{$producto->nomProducto}}</td>
-                                        <td style="width: 7%; text-align: right;">{{$producto->precioCosto}} {{__ ('€')}}</td>
-                                        <td style="width: 10%; text-align: center;">{{$producto->fechaCaducidad}}</td>
-                                        <td style="width: 7%; text-align: center;">{{$producto->existencias}}</td>
+                                        <td style="width: 7%; text-align: right;">{{ $producto->precioCosto }} {{__ ('€')}}</td>
+                                        <td style="width: 10%; text-align: center;">{{ $producto->fechaCaducidad->format('d/m/Y') }}</td>
+                                        <td style="width: 7%; text-align: center;">{{ $producto->existencias }} {{__ ('Und.')}}</td>
                                         <td style="width: 1%;"><a class="btn btn-primary" href="{{action('ProductoController@edit', $producto->id)}}" ><span class="fa fa-edit">{{__ ('Editar')}}</span></a></td>
                                         <td style="width: 1%;">
                                         	<form action="{{action('ProductoController@destroy', $producto->id)}}" method="post">
