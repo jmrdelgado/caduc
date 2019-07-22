@@ -75,12 +75,12 @@
                                         <td style="width: 7%; text-align: right;">{{ $producto->precioCosto }} {{__ ('€')}}</td>
                                         <td style="width: 10%; text-align: center;">{{ $producto->fechaCaducidad->format('d/m/Y') }}</td>
                                         <td style="width: 7%; text-align: center;">{{ $producto->existencias }} {{__ ('Und.')}}</td>
-                                        <td style="width: 1%;"><a class="btn btn-primary" href="{{action('ProductoController@edit', $producto->id)}}" ><span class="fa fa-edit">{{__ ('Editar')}}</span></a></td>
+                                        <td style="width: 1%;"><a class="btn btn-primary" href="{{action('ProductoController@edit', $producto->id)}}" ><span class="fa fa-edit">{{__ (' Editar')}}</span></a></td>
                                         <td style="width: 1%;">
                                         	<form action="{{action('ProductoController@destroy', $producto->id)}}" method="post">
                        							@csrf
                        							<input name="_method" type="hidden" value="DELETE">
-     						                   <button class="btn btn-danger" type="submit"><span class="fa fa-trash">{{__ ('Eliminar')}}</span></button>
+     						                   <button class="btn btn-danger" type="submit"><span class="fa fa-trash">{{__ (' Eliminar')}}</span></button>
                                         	</form>
                                         </td>
                                     </tr>
