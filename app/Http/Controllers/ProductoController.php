@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Producto;
 use App\Subcategoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductoController extends Controller
 {
@@ -37,8 +38,9 @@ class ProductoController extends Controller
      */
     public function create()
     {
+        $subcategorias = Subcategoria::all()->sortBy('nomSubcategoria',false);
         //Muestra la vista para llevar a cabo el alta de nuevos Productos
-        return view('admin.products.create');
+        return view('admin.products.create', compact('subcategorias'));
     }
 
     /**
@@ -49,7 +51,18 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Realizamos validación de datos requeridos
+        $this->validate($request, ["nomProducto" => "required"]);
+        $this->validate($request, ["fechaCaducidad" => "required"]);
+        $this->validate($request, ["existencias" => "required"]);
+        $this->validate($request, ["idSubcategoriaFK" => "required"]);
+        
+        $reg = $request->all();
+        $reg['fechaCaducidad'] = date('Y-m-d', strtotime($reg['fechaCaducidad']));
+        
+        Producto::create($reg);
+        
+        return redirect()->route('productos.index')->with('success','Registro creado satisfactoriamente');;
     }
 
     /**
@@ -95,7 +108,7 @@ class ProductoController extends Controller
 
         //Actualizamos datos del producto solicitado
         $reg = $request->all();
-        $reg['fechaCaducidad'] = date('Y-d-m', strtotime($reg['fechaCaducidad']));
+        $reg['fechaCaducidad'] = date('Y-m-d', strtotime($reg['fechaCaducidad']));
         
         Producto::find($id)->update($reg);
         

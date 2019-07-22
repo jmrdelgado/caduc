@@ -66,7 +66,7 @@
                 		</div>
         			</div>
                 	<div class="form-group">
-          				<label class="col-sm-3 control-label" for="nomProducto">{{__ ('Denominación')}}</label>
+          				<label class="col-sm-3 control-label" for="nomProducto">{{__ ('Denominación*')}}</label>
           				<div class="col-sm-8">
           					<input type="text" class="form-control" id="nomProducto" name="nomProducto" placeholder="Denominación Producto" value="{{$productos->nomProducto}}">
               			</div>
@@ -85,13 +85,13 @@
               			<label class="control-label">{{__ ('€')}}</label>
                 	</div>
                 	<div class="form-group">
-              			<label class="col-sm-3 control-label" for="fechaCaducidad">{{__ ('Fecha Caducidad')}}</label>
+              			<label class="col-sm-3 control-label" for="fechaCaducidad">{{__ ('Fecha Caducidad*')}}</label>
               			<div class="col-sm-3">
-              				<input type="text" class="form-control" id="fechaCaducidad" name="fechaCaducidad" placeholder="Fecha de Caducidad" value="{{$productos->fechaCaducidad->format('d/m/Y')}}">
+              				<input type="date" class="form-control" id="fechaCaducidad" name="fechaCaducidad" placeholder="Fecha de Caducidad" style="line-height: 18px;" value="{{$productos->fechaCaducidad->format('Y-m-d')}}">
               			</div>
                 	</div>
                 	<div class="form-group">
-              			<label class="col-sm-3 control-label" for="existencias">{{__ ('Existencias')}}</label>
+              			<label class="col-sm-3 control-label" for="existencias">{{__ ('Existencias*')}}</label>
               			<div class="col-sm-2">
               				<input type="text" class="form-control" id="existencias" name="existencias" placeholder="Existencias" value="{{$productos->existencias}}">
               			</div>
