@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Producto;
 use App\Subcategoria;
+use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
@@ -94,7 +94,10 @@ class ProductoController extends Controller
         $this->validate($request, ["idSubcategoriaFK" => "required"]);
 
         //Actualizamos datos del producto solicitado
-        Producto::find($id)->update($request->all());
+        $reg = $request->all();
+        $reg['fechaCaducidad'] = date('Y-d-m', strtotime($reg['fechaCaducidad']));
+        
+        Producto::find($id)->update($reg);
         
         //Retornamos a la vista principal de productos
         return redirect()->route('productos.index')->with('success','Registro actualizado satisfactoriamente');
