@@ -20,5 +20,18 @@ class Producto extends Model
         return $this->belongsTo("App/Subcategoria");
     }
     
-    //Creación de consultas scope
+    /**
+     * Consultas de búsqueda scope
+     */
+    public function scopeSearchProducto($query, $param) {
+        if ($param) {
+            return $query->where('nomProducto', 'LIKE', "%$param%");
+        }
+    }
+    
+    public function scopeSearchFecha($query, $param) {
+        if ($param) {
+            return $query->where('fechaCaducidad', 'LIKE', "%$param%");
+        }
+    }
 }

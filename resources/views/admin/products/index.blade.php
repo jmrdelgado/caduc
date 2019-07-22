@@ -53,8 +53,8 @@
             		<div class="col-sm-6">
             			<div id="example1_filter" class="dataTables_filter">
             				<label>{{__ ('Buscar:')}}
-            				    <input type="search" class="form-control input-sm" id="searchcategori" name="searchcategori" aria-controls="example1" placeholder="Nombre Producto">
-            					<input type="search" class="form-control input-sm" id="searchsubcategori" name="searchsubcategori" aria-controls="example1" placeholder="Fecha Caducidad">
+            				    <input type="search" class="form-control input-sm" id="searchproducto" name="searchproducto" aria-controls="example1" placeholder="Nombre Producto">
+            					<input type="search" class="form-control input-sm" id="searchfechaproducto" name="searchfechaproducto" aria-controls="example1" placeholder="Fecha Caducidad">
             				</label>
             				<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
             			</div>

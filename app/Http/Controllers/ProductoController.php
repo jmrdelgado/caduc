@@ -23,9 +23,15 @@ class ProductoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //Recogemos valores de busqueda
+        $prodbusca = $request->get('searchproducto');
+        $fechabusca = $request->get('searchfechaproducto');
+        
         $productos = Producto::orderBy('nomProducto','ASC')
+        ->SearchProducto($prodbusca)
+        ->SearchFecha($fechabusca)
         ->paginate(3);
 
         return view('admin.products.index', compact('productos'));
